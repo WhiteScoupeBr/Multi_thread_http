@@ -41,7 +41,7 @@ class handler (BaseHTTPRequestHandler):
         body = self.rfile.read(content_length)
         self.write_response(body)
         print(threading.currentThread().getName())
-        self.handle_request()
+        #self.handle_request()
         
     def write_response(self, content):
         self.send_response(200)
@@ -59,10 +59,6 @@ class handler (BaseHTTPRequestHandler):
             print("request:",request1)
             self.send_response(200)
             message = codecs.open("index.html", 'r')
-        elif('index' in self.path):
-            self.send_response(200)
-            message = codecs.open("index.html")
-
         else:
             self.send_response(404)
             message = codecs.open("erro.html", 'r')
